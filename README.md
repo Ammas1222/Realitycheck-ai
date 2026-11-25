@@ -1,4 +1,4 @@
-# RealityCheck AI
+# Reply
 
 A full-stack startup validation app with a muted, autoplay 20-second product film on each site entry, followed by a sassy public landing page and a sign-in-gated Founder Desk. The opening film is served as H.264 MP4 with VP9 WebM fallback; users can skip it, and reduced-motion preferences bypass autoplay. A separate 12-second brand intro is also available under `public/videos/`. After login, the Overview stays compact: basic workspace stats, simple New idea / Ask Advisor actions, and recent reports. The six-agent explanation and inline forms live on their dedicated pages instead of adding long scroll sections to Overview. Users can switch between warm light and deep-green dark themes; the choice persists in local storage. The free plan is capped at five reports and twenty substantive Advisor replies per Asia/Kolkata calendar month. Paid plans are displayed as coming soon; no checkout or charges are active.
 
