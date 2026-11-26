@@ -1,5 +1,6 @@
 import http from 'node:http';
 import { readFile } from 'node:fs/promises';
+import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Database from 'better-sqlite3';
@@ -12,7 +13,13 @@ const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/$/, '');
 const SUPABASE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY || '';
 const SUPABASE_ENABLED = Boolean(SUPABASE_URL && SUPABASE_KEY);
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'data', 'realitycheck.db');
+
+// Automatically create the database directory if it doesn't exist
+mkdirSync(path.dirname(DB_PATH), { recursive: true });
+
 const db = new Database(DB_PATH);
+db.pragma('journal_mode = WAL');
+db.pragma('foreign_keys = ON');
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
 db.exec(`
